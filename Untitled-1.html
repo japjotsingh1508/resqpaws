@@ -1,0 +1,1804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResQ Paws - Street Dog Rescue Platform</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #FF7F00;
+            --secondary-color: #FFFFFF;
+            --accent-color: #FFD700;
+            --dark-color: #333333;
+            --light-gray: #F5F5F5;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-color);
+            background-color: var(--secondary-color);
+            overflow-x: hidden;
+        }
+        
+        .navbar {
+            background-color: var(--secondary-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 24px;
+        }
+        
+        .navbar-brand span {
+            color: var(--dark-color);
+        }
+        
+        .nav-link {
+            color: var(--dark-color);
+            font-weight: 500;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-color);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 10px 25px;
+            font-weight: 500;
+            border-radius: 50px;
+        }
+        
+        .btn-primary:hover {
+            background-color: #e67300;
+            border-color: #e67300;
+        }
+        
+        .btn-outline-primary {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 10px 25px;
+            font-weight: 500;
+            border-radius: 50px;
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+                        url('https://images.unsplash.com/photo-1551334787-21e6bd3ab135?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center;
+            background-size: cover;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero-title {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 3rem;
+        }
+        
+        .hero-subtitle {
+            color: var(--dark-color);
+            margin-bottom: 30px;
+            font-size: 1.2rem;
+        }
+        
+        .feature-card {
+            background-color: var(--secondary-color);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+            border-top: 5px solid var(--primary-color);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background-color: var(--accent-color);
+            bottom: -10px;
+            left: 0;
+        }
+        
+        .how-it-works {
+            background-color: var(--light-gray);
+            padding: 80px 0;
+        }
+        
+        .step-card {
+            background-color: var(--secondary-color);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+        
+        .testimonial-card {
+            background-color: var(--secondary-color);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-top: 20px;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+        
+        .contact-form {
+            background-color: var(--secondary-color);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: var(--secondary-color);
+            padding: 50px 0 20px;
+        }
+        
+        .footer-links h5 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+        
+        .social-icons a {
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            margin-right: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 30px;
+        }
+        
+        /* Modal Styles */
+        .modal-content {
+            border-radius: 15px;
+            border: none;
+        }
+        
+        .modal-header {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        
+        .modal-title {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        
+        .modal-body {
+            padding: 30px;
+        }
+        
+        .form-control {
+            border-radius: 50px;
+            padding: 12px 20px;
+            margin-bottom: 20px;
+            border: 1px solid #eee;
+        }
+        
+        .form-control:focus {
+            box-shadow: none;
+            border-color: var(--primary-color);
+        }
+        
+        /* Report Form Styles */
+        .report-form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--secondary-color);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .image-upload-container {
+            border: 2px dashed #ccc;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .image-upload-container:hover {
+            border-color: var(--primary-color);
+        }
+        
+        .image-preview {
+            max-width: 100%;
+            max-height: 300px;
+            margin-top: 20px;
+            display: none;
+            border-radius: 10px;
+        }
+        
+        /* AI Processing Animation */
+        .ai-processing {
+            display: none;
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .ai-processing i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .spinner {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto;
+            border: 8px solid rgba(255, 127, 0, 0.2);
+            border-top: 8px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Success Message */
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 30px;
+            background-color: rgba(0, 200, 83, 0.1);
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+        
+        .success-message i {
+            font-size: 4rem;
+            color: #00C853;
+            margin-bottom: 20px;
+        }
+        
+        /* First Aid Chatbot */
+        .chatbot-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--secondary-color);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+        
+        .chatbot-header {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 15px 20px;
+            font-weight: 600;
+        }
+        
+        .chatbot-messages {
+            height: 400px;
+            overflow-y: auto;
+            padding: 20px;
+            background-color: var(--light-gray);
+        }
+        
+        .message {
+            margin-bottom: 15px;
+            max-width: 80%;
+            padding: 10px 15px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .bot-message {
+            background-color: var(--secondary-color);
+            border-top-left-radius: 5px;
+            align-self: flex-start;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        
+        .user-message {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            border-top-right-radius: 5px;
+            align-self: flex-end;
+            margin-left: auto;
+        }
+        
+        .chatbot-input {
+            display: flex;
+            padding: 15px;
+            background-color: var(--secondary-color);
+            border-top: 1px solid #eee;
+        }
+        
+        .chatbot-input input {
+            flex: 1;
+            border: 1px solid #eee;
+            border-radius: 50px;
+            padding: 10px 20px;
+            margin-right: 10px;
+        }
+        
+        .chatbot-input button {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            border: none;
+            border-radius: 50px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        
+        /* Adoption Portal - Tinder-like */
+        .adoption-portal {
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+            height: 600px;
+        }
+        
+        .dog-card {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            border-radius: 15px;
+            position: absolute;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            overflow: hidden;
+        }
+        
+        .dog-info {
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            padding: 20px;
+            transform: translateY(100px);
+            transition: all 0.3s ease;
+        }
+        
+        .dog-card:hover .dog-info {
+            transform: translateY(0);
+        }
+        
+        .dog-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .dog-breed {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .dog-description {
+            margin-bottom: 15px;
+        }
+        
+        .ngo-info {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .swipe-buttons {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            z-index: 10;
+        }
+        
+        .swipe-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: none;
+            margin: 0 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .swipe-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .swipe-left {
+            background-color: #FF5252;
+            color: white;
+        }
+        
+        .swipe-right {
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-paw me-2"></i>ResQ <span>Paws</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" data-section="dashboard">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-section="report">Report</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-section="first-aid">First Aid</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-section="how-it-works">How We Work</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-section="ngo-partners">NGO Partners</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-section="adoption">Adoption</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-section="contact">Connect</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="section-content active-section">
+        <div class="hero-section">
+            <div class="container">
+                <h1 class="hero-title">ResQ Paws</h1>
+                <p class="hero-subtitle">Automated rescue platform for street animals. Together we can make a difference.</p>
+                <div class="d-flex justify-content-center gap-3">
+                    <button class="btn btn-primary" data-section="report">Report a Stray</button>
+                    <button class="btn btn-outline-primary" data-section="first-aid">Get First Aid Help</button>
+                </div>
+            </div>
+        </div>
+        
+   
+
+        <section id="dashboard" class="text-center py-5 bg-orange-100">
+            <h1 class="text-4xl font-bold text-orange-600 mb-3">ResQ PAWS</h1>
+            <p class="text-xl mb-4">Helping street animals with the power of AI and compassion</p>
+            <button class="btn btn-outline-dark" onclick="startCamera()">📷 Open Camera</button>
+            <video id="camera" width="320" height="240" autoplay class="my-3 hidden border"></video>
+            <div id="camera-buttons" class="hidden">
+              <button class="btn btn-success" onclick="captureImage()">Upload</button>
+              <button class="btn btn-danger" onclick="stopCamera()">Cancel</button>
+            </div>
+          </section>
+        <div class="container py-5">
+            <h2 class="section-title text-center">Rescue in Three Simple Steps</h2>
+            <div class="row mt-5">
+                <div class="col-md-4">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <h3>1. Snap a Photo</h3>
+                        <p>Take a picture of the stray animal in need using our app or upload an existing photo.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>2. Describe Location</h3>
+                        <p>Provide details about where you found the animal or let our GPS automatically detect it.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-bell"></i>
+                        </div>
+                        <h3>3. Alert Nearest NGO</h3>
+                        <p>Our system instantly notifies the nearest animal rescue organization with all the details.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="how-it-works">
+            <div class="container py-5">
+                <h2 class="section-title text-center">How We Help</h2>
+                <div class="row mt-5">
+                    <div class="col-lg-6 mb-4">
+                        <img src="https://images.unsplash.com/photo-1583511655826-05700442b31b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Rescue Process" class="img-fluid rounded">
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="step-card">
+                            <div class="step-number">1</div>
+                            <h3>AI-Powered Analysis</h3>
+                            <p>Our advanced AI analyzes the uploaded images to detect injuries, breed, and condition of the animal, classifying the severity of the case.</p>
+                        </div>
+                        <div class="step-card mt-4">
+                            <div class="step-number">2</div>
+                            <h3>Instant NGO Matching</h3>
+                            <p>The system automatically matches the case with the nearest available NGO based on location and specialization.</p>
+                        </div>
+                        <div class="step-card mt-4">
+                            <div class="step-number">3</div>
+                            <h3>Efficient Rescue</h3>
+                            <p>NGOs receive all necessary information through our dashboard and can efficiently locate and rescue the animal.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container py-5">
+            <h2 class="section-title text-center">What People Say</h2>
+            <div class="row mt-5">
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p>"ResQ Paws helped me rescue an injured dog near my office. The response was incredibly fast and the NGO was there within 30 minutes. Amazing service!"</p>
+                        <p class="testimonial-author">- Priya Sharma, Mumbai</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p>"As an NGO worker, this platform has revolutionized our rescue operations. The automated system saves us hours of paperwork and helps us prioritize cases."</p>
+                        <p class="testimonial-author">- Raj Patel, Pawsitive Hope NGO</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star-half-alt text-warning"></i>
+                        </div>
+                        <p>"I adopted my best friend Bruno through ResQ Paws. The adoption process was smooth and the NGO provided all the necessary medical records."</p>
+                        <p class="testimonial-author">- Ananya Gupta, Delhi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container py-5">
+            <h2 class="section-title text-center">Frequently Asked Questions</h2>
+            <div class="row mt-5">
+                <div class="col-lg-6">
+                    <div class="faq-item">
+                        <h4 class="faq-question">How quickly does ResQ Paws respond to reports? <i class="fas fa-chevron-down float-end"></i></h4>
+                        <p class="faq-answer mt-3">Our system processes reports instantly and notifies the nearest NGO immediately. Response time depends on the NGO's availability, but most cases receive attention within 1-2 hours.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4 class="faq-question">Is there any cost to use ResQ Paws? <i class="fas fa-chevron-down float-end"></i></h4>
+                        <p class="faq-answer mt-3">No, ResQ Paws is completely free for users reporting stray animals. Our platform is supported by donations and NGO partnerships.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="faq-item">
+                        <h4 class="faq-question">How accurate is the AI in assessing animal conditions? <i class="fas fa-chevron-down float-end"></i></h4>
+                        <p class="faq-answer mt-3">Our AI has been trained on thousands of animal health cases and achieves 92% accuracy in identifying common injuries and conditions. However, final assessment is always done by the rescue team.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4 class="faq-question">Can I track the status of my reported case? <i class="fas fa-chevron-down float-end"></i></h4>
+                        <p class="faq-answer mt-3">Yes, once you create an account, you can track all your reported cases through your personal dashboard and receive updates on the rescue progress.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Report Section -->
+    <section id="report" class="section-content">
+        <div class="container py-5">
+            <div class="report-form-container">
+                <h2 class="section-title text-center mb-4">Report a Stray Animal</h2>
+                <p class="text-center mb-5">Help us rescue animals in need by providing the following information. Our AI will analyze the case and alert the nearest NGO.</p>
+                
+                <div class="image-upload-container" id="imageUploadContainer">
+                    <i class="fas fa-camera fa-3x mb-3" style="color: var(--primary-color);"></i>
+                    <h4>Click to Upload Photo</h4>
+                    <p class="text-muted">or drag and drop image here</p>
+                    <input type="file" id="animalImage" accept="image/*" style="display: none;">
+                    <img id="imagePreview" class="image-preview">
+                </div>
+                
+                <div class="ai-processing" id="aiProcessing">
+                    <div class="spinner"></div>
+                    <h4 class="mt-3">Analyzing Image with AI</h4>
+                    <p class="text-muted">Detecting animal condition and location...</p>
+                </div>
+                
+                <div class="mb-4">
+                    <label for="animalType" class="form-label">Animal Type</label>
+                    <select class="form-select" id="animalType">
+                        <option selected disabled>Select animal type</option>
+                        <option value="dog">Dog</option>
+                        <option value="cat">Cat</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="mb-4">
+                    <label for="conditionDescription" class="form-label">Condition Description</label>
+                    <textarea class="form-control" id="conditionDescription" rows="3" placeholder="Describe the animal's condition and any visible injuries"></textarea>
+                </div>
+                
+                <div class="mb-4">
+                    <label for="location" class="form-label">Location</label>
+                    <input type="text" class="form-control" id="location" placeholder="Enter location or allow GPS detection">
+                    <button class="btn btn-sm btn-outline-primary mt-2" id="detectLocation">
+                        <i class="fas fa-location-arrow me-1"></i> Detect My Location
+                    </button>
+                </div>
+                
+                <div class="mb-4">
+                    <label for="contactInfo" class="form-label">Your Contact Information (optional)</label>
+                    <input type="text" class="form-control" id="contactInfo" placeholder="Phone or email if you'd like updates">
+                </div>
+                
+                <div class="d-flex justify-content-between mt-5">
+                    <button class="btn btn-outline-primary" id="resetForm">
+                        <i class="fas fa-redo me-1"></i> Reset
+                    </button>
+                    <div>
+                        <button class="btn btn-primary me-2" id="whatsappShare">
+                            <i class="fab fa-whatsapp me-1"></i> Share via WhatsApp
+                        </button>
+                        <button class="btn btn-primary" id="submitReport">
+                            <i class="fas fa-paper-plane me-1"></i> Submit Report
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="success-message" id="successMessage">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Report Submitted Successfully!</h3>
+                    <p>Thank you for helping this animal in need. The nearest NGO has been notified and will respond soon.</p>
+                    <p>Case ID: <strong>RP-2023-05642</strong></p>
+                    <button class="btn btn-primary mt-3" data-section="dashboard">
+                        <i class="fas fa-home me-1"></i> Back to Home
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- First Aid Section -->
+    <section id="first-aid" class="section-content">
+        <div class="container py-5">
+            <h2 class="section-title text-center mb-5">First Aid Assistance</h2>
+            
+            <div class="chatbot-container">
+                <div class="chatbot-header">
+                    <i class="fas fa-first-aid me-2"></i> First Aid Bot
+                </div>
+                <div class="chatbot-messages" id="chatbotMessages">
+                    <div class="message bot-message">
+                        Hello! I'm here to help with first aid for street animals. Please describe the symptoms or situation you're dealing with.
+                    </div>
+                </div>
+                <div class="chatbot-input">
+                    <input type="text" id="userMessage" placeholder="Type your message here...">
+                    <button id="sendMessage"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-md-6">
+                    <div class="feature-card">
+                        <h3><i class="fas fa-ambulance me-2"></i> Emergency Contacts</h3>
+                        <ul class="list-group list-group-flush mt-3">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Local Animal Ambulance
+                                <span class="badge bg-primary rounded-pill">+91 98765 43210</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                24/7 Vet Helpline
+                                <span class="badge bg-primary rounded-pill">1800 123 4567</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Poison Control
+                                <span class="badge bg-primary rounded-pill">+91 87654 32109</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="feature-card">
+                        <h3><i class="fas fa-book me-2"></i> First Aid Resources</h3>
+                        <div class="list-group list-group-flush mt-3">
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <i class="fas fa-file-pdf me-2"></i> Basic Animal First Aid Guide
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <i class="fas fa-video me-2"></i> How to Handle Injured Animals
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <i class="fas fa-file-alt me-2"></i> Common Canine Diseases
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="section-content">
+        <div class="container py-5">
+            <h2 class="section-title text-center mb-5">How ResQ Paws Works</h2>
+            
+            <div class="row align-items-center mb-5">
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Reporting Process" class="img-fluid rounded">
+                </div>
+                <div class="col-lg-6">
+                    <h3 class="mb-4">1. Reporting Process</h3>
+                    <p>When you encounter a stray animal in distress, simply use our platform to report it. The process is quick and easy:</p>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex align-items-center">
+                            <i class="fas fa-check-circle text-success me-3"></i>
+                            <span>Take or upload a photo of the animal</span>
+                        </li>
+                        <li class="list-group-item d-flex align-items-center">
+                            <i class="fas fa-check-circle text-success me-3"></i>
+                            <span>Provide location details (or use automatic GPS detection)</span>
+                        </li>
+                        <li class="list-group-item d-flex align-items-center">
+                            <i class="fas fa-check-circle text-success me-3"></i>
+                            <span>Describe the animal's condition</span>
+                        </li>
+                        <li class="list-group-item d-flex align-items-center">
+                            <i class="fas fa-check-circle text-success me-3"></i>
+                            <span>Submit the report with one click</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="row align-items-center mb-5 flex-lg-row-reverse">
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="AI Processing" class="img-fluid rounded">
+                </div>
+                <div class="col-lg-6">
+                    <h3 class="mb-4">2. AI Processing & Analysis</h3>
+                    <p>Our advanced artificial intelligence system immediately processes each report:</p>
+                    <div class="row mt-4">
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex">
+                                <div class="me-3">
+                                    <i class="fas fa-brain text-primary fa-2x"></i>
+                                </div>
+                                <div>
+                                    <h5>Image Analysis</h5>
+                                    <p class="small">Detects injuries, breed, and approximate age</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex">
+                                <div class="me-3">
+                                    <i class="fas fa-bolt text-primary fa-2x"></i>
+                                </div>
+                                <div>
+                                    <h5>Severity Classification</h5>
+                                    <p class="small">Prioritizes cases based on urgency</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex">
+                                <div class="me-3">
+                                    <i class="fas fa-map-marked-alt text-primary fa-2x"></i>
+                                </div>
+                                <div>
+                                    <h5>Location Mapping</h5>
+                                    <p class="small">Pinpoints exact coordinates for rescue</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex">
+                                <div class="me-3">
+                                    <i class="fas fa-project-diagram text-primary fa-2x"></i>
+                                </div>
+                                <div>
+                                    <h5>NGO Matching</h5>
+                                    <p class="small">Finds the most suitable rescue organization</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1544568100-847a948585b9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Rescue Process" class="img-fluid rounded">
+                </div>
+                <div class="col-lg-6">
+                    <h3 class="mb-4">3. Rescue & Follow-up</h3>
+                    <p>Once the report is processed, our system ensures swift action:</p>
+                    <div class="accordion mt-4" id="rescueAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                    <i class="fas fa-bell me-2"></i> Instant NGO Notification
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#rescueAccordion">
+                                <div class="accordion-body">
+                                    The nearest available NGO receives an immediate alert with all case details, including the animal's photo, location, and AI assessment.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                    <i class="fas fa-ambulance me-2"></i> Rescue Dispatch
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#rescueAccordion">
+                                <div class="accordion-body">
+                                    The NGO dispatches a rescue team equipped with the necessary information to locate and safely secure the animal.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                                    <i class="fas fa-clipboard-check me-2"></i> Case Management
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#rescueAccordion">
+                                <div class="accordion-body">
+                                    The case is tracked through our digital dashboard from rescue to rehabilitation, with updates available to the reporter if they provided contact information.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NGO Partners Section -->
+    <section id="ngo-partners" class="section-content">
+        <div class="container py-5">
+            <h2 class="section-title text-center mb-5">Our NGO Partners</h2>
+            <p class="text-center mb-5">ResQ Paws collaborates with trusted animal welfare organizations across the country to ensure prompt and effective rescue operations.</p>
+            
+            <div class="row mb-5">
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1558788353-f76d92427f16?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Pawsitive Hope">
+                        <div class="card-body">
+                            <h5 class="card-title">Pawsitive Hope</h5>
+                            <p class="card-text">Specializing in emergency rescues and medical care for injured strays across Mumbai and Pune.</p>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-map-marker-alt text-danger me-2"></i>
+                                <span>Mumbai, Pune, Thane</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <a href="#" class="btn btn-sm btn-outline-primary">Visit Website</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Furry Angels">
+                        <div class="card-body">
+                            <h5 class="card-title">Furry Angels</h5>
+                            <p class="card-text">Focusing on rehabilitation and adoption of abandoned pets in Delhi NCR region.</p>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-map-marker-alt text-danger me-2"></i>
+                                <span>Delhi, Gurgaon, Noida</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <a href="#" class="btn btn-sm btn-outline-primary">Visit Website</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1561037404-61cd46aa615b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Tail Wagers">
+                        <div class="card-body">
+                            <h5 class="card-title">Tail Wagers</h5>
+                            <p class="card-text">Providing shelter and veterinary care to street dogs in Bangalore since 2010.</p>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-map-marker-alt text-danger me-2"></i>
+                                <span>Bangalore, Mysore</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <a href="#" class="btn btn-sm btn-outline-primary">Visit Website</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1588943211346-0908a1fb0b01?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Whisker Warriors">
+                        <div class="card-body">
+                            <h5 class="card-title">Whisker Warriors</h5>
+                            <p class="card-text">Dedicated to rescuing and rehabilitating cats in Chennai and surrounding areas.</p>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-map-marker-alt text-danger me-2"></i>
+                                <span>Chennai, Pondicherry</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <a href="#" class="btn btn-sm btn-outline-primary">Visit Website</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1544568100-847a948585b9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Animal Aid Unlimited">
+                        <div class="card-body">
+                            <h5 class="card-title">Animal Aid Unlimited</h5>
+                            <p class="card-text">Comprehensive rescue services for all types of animals in Rajasthan.</p>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-map-marker-alt text-danger me-2"></i>
+                                <span>Jaipur, Udaipur, Jodhpur</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <a href="#" class="btn btn-sm btn-outline-primary">Visit Website</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Happy Tails">
+                        <div class="card-body">
+                            <h5 class="card-title">Happy Tails</h5>
+                            <p class="card-text">Specializing in adoption drives and community education in Hyderabad.</p>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-map-marker-alt text-danger me-2"></i>
+                                <span>Hyderabad, Secunderabad</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <a href="#" class="btn btn-sm btn-outline-primary">Visit Website</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <h3 class="mb-4">Want to Become a Partner NGO?</h3>
+                <p>Join our network of animal welfare organizations and enhance your rescue capabilities with our platform.</p>
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#partnerModal">
+                    <i class="fas fa-handshake me-2"></i> Apply Now
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Adoption Section -->
+    <section id="adoption" class="section-content">
+        <div class="container py-5">
+            <h2 class="section-title text-center mb-5">Adopt a Furry Friend</h2>
+            <p class="text-center mb-5">Swipe right to learn more about dogs available for adoption from our partner NGOs.</p>
+            
+            <div class="adoption-portal">
+                <div class="dog-card" style="background-image: url('https://images.unsplash.com/photo-1586671267731-da2cf3ceeb80?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+                    <div class="dog-info">
+                        <h3 class="dog-name">Buddy</h3>
+                        <p class="dog-breed">Labrador Mix</p>
+                        <p class="dog-description">Friendly 2-year-old male, good with kids and other pets. Vaccinated and neutered.</p>
+                        <p class="ngo-info">Available through: Pawsitive Hope, Mumbai</p>
+                    </div>
+                </div>
+                
+                <div class="swipe-buttons">
+                    <button class="swipe-btn swipe-left">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <button class="swipe-btn swipe-right">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-md-6">
+                    <div class="feature-card">
+                        <h3><i class="fas fa-paw me-2"></i> Adoption Process</h3>
+                        <ol class="mt-3">
+                            <li class="mb-2">Browse available pets through our portal</li>
+                            <li class="mb-2">Express interest by swiping right</li>
+                            <li class="mb-2">The NGO will contact you for a virtual meeting</li>
+                            <li class="mb-2">Complete the adoption paperwork</li>
+                            <li>Welcome your new family member home!</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="feature-card">
+                        <h3><i class="fas fa-question-circle me-2"></i> Adoption FAQs</h3>
+                        <div class="accordion mt-3" id="adoptionAccordion">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#adoptCollapseOne">
+                                        What are the adoption fees?
+                                    </button>
+                                </h2>
+                                <div id="adoptCollapseOne" class="accordion-collapse collapse" data-bs-parent="#adoptionAccordion">
+                                    <div class="accordion-body">
+                                        Adoption fees vary by NGO but typically range from ₹500-2000 to cover basic veterinary expenses. Some NGOs waive fees for special cases.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#adoptCollapseTwo">
+                                        What's included in the adoption?
+                                    </button>
+                                </h2>
+                                <div id="adoptCollapseTwo" class="accordion-collapse collapse" data-bs-parent="#adoptionAccordion">
+                                    <div class="accordion-body">
+                                        All pets are vaccinated, dewormed, and spayed/neutered. You'll receive medical records and post-adoption support.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#adoptCollapseThree">
+                                        Can I return a pet if it doesn't work out?
+                                    </button>
+                                </h2>
+                                <div id="adoptCollapseThree" class="accordion-collapse collapse" data-bs-parent="#adoptionAccordion">
+                                    <div class="accordion-body">
+                                        Yes, all our partner NGOs have return policies. They would rather have the pet returned than be in an unsuitable home.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-content">
+        <div class="container py-5">
+            <h2 class="section-title text-center mb-5">Connect With Us</h2>
+            
+            <div class="row">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="contact-form">
+                        <h3 class="mb-4">Send Us a Message</h3>
+                        <form id="contactForm">
+                            <div class="mb-3">
+                                <label for="contactName" class="form-label">Your Name</label>
+                                <input type="text" class="form-control" id="contactName" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="contactEmail" class="form-label">Email Address</label>
+                                <input type="email" class="form-control" id="contactEmail" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="contactPhone" class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control" id="contactPhone">
+                            </div>
+                            <div class="mb-3">
+                                <label for="contactSubject" class="form-label">Subject</label>
+                                <select class="form-select" id="contactSubject" required>
+                                    <option value="" selected disabled>Select a subject</option>
+                                    <option value="report">Report an Issue</option>
+                                    <option value="partnership">Partnership Inquiry</option>
+                                    <option value="volunteer">Volunteer Opportunity</option>
+                                    <option value="donation">Donation Inquiry</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="contactMessage" class="form-label">Message</label>
+                                <textarea class="form-control" id="contactMessage" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="feature-card h-100">
+                        <h3 class="mb-4">Contact Information</h3>
+                        <div class="mb-4">
+                            <h5><i class="fas fa-map-marker-alt text-primary me-2"></i> Our Office</h5>
+                            <p class="ms-4">123 Animal Care Lane, Bandra West, Mumbai, Maharashtra 400050</p>
+                        </div>
+                        <div class="mb-4">
+                            <h5><i class="fas fa-phone-alt text-primary me-2"></i> Phone</h5>
+                            <p class="ms-4">+91 98765 43210 (10am - 6pm IST)</p>
+                        </div>
+                        <div class="mb-4">
+                            <h5><i class="fas fa-envelope text-primary me-2"></i> Email</h5>
+                            <p class="ms-4">contact@resqpaws.org</p>
+                        </div>
+                        <div class="mb-4">
+                            <h5><i class="fas fa-clock text-primary me-2"></i> Hours</h5>
+                            <p class="ms-4">Monday - Saturday: 9am - 7pm<br>Sunday: Emergency reports only</p>
+                        </div>
+                        <div>
+                            <h5><i class="fas fa-share-alt text-primary me-2"></i> Follow Us</h5>
+                            <div class="ms-4 mt-2">
+                                <a href="#" class="text-decoration-none me-3"><i class="fab fa-facebook-f fa-lg"></i></a>
+                                <a href="#" class="text-decoration-none me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                                <a href="#" class="text-decoration-none me-3"><i class="fab fa-instagram fa-lg"></i></a>
+                                <a href="#" class="text-decoration-none me-3"><i class="fab fa-linkedin-in fa-lg"></i></a>
+                                <a href="#" class="text-decoration-none"><i class="fab fa-youtube fa-lg"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5 class="text-white mb-4"><i class="fas fa-paw me-2"></i> ResQ Paws</h5>
+                    <p>Automated rescue platform for street animals. Together we can make a difference in the lives of countless animals in need.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-white mb-4">Quick Links</h5>
+                    <ul>
+                        <li><a href="#" data-section="dashboard">Home</a></li>
+                        <li><a href="#" data-section="report">Report</a></li>
+                        <li><a href="#" data-section="first-aid">First Aid</a></li>
+                        <li><a href="#" data-section="how-it-works">How We Work</a></li>
+                        <li><a href="#" data-section="adoption">Adoption</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-white mb-4">Resources</h5>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Volunteer</a></li>
+                        <li><a href="#">Donate</a></li>
+                        <li><a href="#">Partners</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="text-white mb-4">Newsletter</h5>
+                    <p>Subscribe to our newsletter to get updates on our work and animal welfare tips.</p>
+                    <form class="mt-3">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email" aria-label="Your Email">
+                            <button class="btn btn-primary" type="button">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright text-center">
+                <p class="mb-0">&copy; 2023 ResQ Paws. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Welcome to ResQ Paws</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="nav nav-tabs mb-4" id="authTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login" type="button" role="tab">Login</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="register-tab" data-bs-toggle="tab" data-bs-target="#register" type="button" role="tab">Register</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="authTabsContent">
+                        <div class="tab-pane fade show active" id="login" role="tabpanel">
+                            <form id="loginForm">
+                                <div class="mb-3">
+                                    <label for="loginEmail" class="form-label">Email address</label>
+                                    <input type="email" class="form-control" id="loginEmail" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="loginPassword" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="loginPassword" required>
+                                </div>
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="rememberMe">
+                                    <label class="form-check-label" for="rememberMe">Remember me</label>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Login</button>
+                            </form>
+                            <div class="text-center mt-3">
+                                <a href="#" class="text-decoration-none">Forgot password?</a>
+                            </div>
+                            <div class="d-flex align-items-center my-4">
+                                <hr class="flex-grow-1">
+                                <span class="mx-3">or</span>
+                                <hr class="flex-grow-1">
+                            </div>
+                            <button class="btn btn-outline-primary w-100 mb-2">
+                                <i class="fab fa-google me-2"></i> Continue with Google
+                            </button>
+                            <button class="btn btn-outline-primary w-100">
+                                <i class="fab fa-facebook-f me-2"></i> Continue with Facebook
+                            </button>
+                        </div>
+                        <div class="tab-pane fade" id="register" role="tabpanel">
+                            <form id="registerForm">
+                                <div class="mb-3">
+                                    <label for="registerName" class="form-label">Full Name</label>
+                                    <input type="text" class="form-control" id="registerName" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="registerEmail" class="form-label">Email address</label>
+                                    <input type="email" class="form-control" id="registerEmail" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="registerPhone" class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" id="registerPhone" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="registerPassword" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="registerPassword" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="registerConfirmPassword" class="form-label">Confirm Password</label>
+                                    <input type="password" class="form-control" id="registerConfirmPassword" required>
+                                </div>
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="termsAgree" required>
+                                    <label class="form-check-label" for="termsAgree">I agree to the <a href="#" class="text-decoration-none">Terms & Conditions</a></label>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Register</button>
+                            </form>
+                            <div class="d-flex align-items-center my-4">
+                                <hr class="flex-grow-1">
+                                <span class="mx-3">or</span>
+                                <hr class="flex-grow-1">
+                            </div>
+                            <button class="btn btn-outline-primary w-100 mb-2">
+                                <i class="fab fa-google me-2"></i> Continue with Google
+                            </button>
+                            <button class="btn btn-outline-primary w-100">
+                                <i class="fab fa-facebook-f me-2"></i> Continue with Facebook
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Become Partner Modal -->
+    <div class="modal fade" id="partnerModal" tabindex="-1" aria-labelledby="partnerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="partnerModalLabel">Become an NGO Partner</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="partnerForm">
+                        <div class="mb-3">
+                            <label for="ngoName" class="form-label">NGO Name</label>
+                            <input type="text" class="form-control" id="ngoName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="ngoEmail" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="ngoEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="ngoPhone" class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" id="ngoPhone" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="ngoLocation" class="form-label">Location (Cities Covered)</label>
+                            <input type="text" class="form-control" id="ngoLocation" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="ngoWebsite" class="form-label">Website (if any)</label>
+                            <input type="url" class="form-control" id="ngoWebsite">
+                        </div>
+                        <div class="mb-3">
+                            <label for="ngoDescription" class="form-label">Brief Description of Your Work</label>
+                            <textarea class="form-control" id="ngoDescription" rows="3" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="ngoRegistration" class="form-label">Registration Number</label>
+                            <input type="text" class="form-control" id="ngoRegistration" required>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="partnerTerms" required>
+                            <label class="form-check-label" for="partnerTerms">I agree to the <a href="#" class="text-decoration-none">Partnership Terms</a></label>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Submit Application</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Navigation between sections
+        document.querySelectorAll('[data-section]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const sectionId = this.getAttribute('data-section');
+                
+                // Hide all sections
+                document.querySelectorAll('.section-content').forEach(section => {
+                    section.classList.remove('active-section');
+                });
+                
+                // Show selected section
+                document.getElementById(sectionId).classList.add('active-section');
+                
+                // Update active nav link
+                document.querySelectorAll('.nav-link').forEach(navLink => {
+                    navLink.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // Scroll to top
+                window.scrollTo(0, 0);
+            });
+        });
+        
+        // FAQ accordion functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const answer = this.nextElementSibling;
+                const icon = this.querySelector('i');
+                
+                if (answer.style.display === 'block') {
+                    answer.style.display = 'none';
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                } else {
+                    answer.style.display = 'block';
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                }
+            });
+        });
+        
+        // Report Form Functionality
+        const imageUploadContainer = document.getElementById('imageUploadContainer');
+        const animalImageInput = document.getElementById('animalImage');
+        const imagePreview = document.getElementById('imagePreview');
+        const aiProcessing = document.getElementById('aiProcessing');
+        const successMessage = document.getElementById('successMessage');
+        const detectLocationBtn = document.getElementById('detectLocation');
+        const resetFormBtn = document.getElementById('resetForm');
+        const whatsappShareBtn = document.getElementById('whatsappShare');
+        const submitReportBtn = document.getElementById('submitReport');
+        
+        // Image upload
+        imageUploadContainer.addEventListener('click', () => {
+            animalImageInput.click();
+        });
+        
+        animalImageInput.addEventListener('change', function() {
+            if (this.files && this.files[0]) {
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    imagePreview.src = e.target.result;
+                    imagePreview.style.display = 'block';
+                    imageUploadContainer.querySelector('i').style.display = 'none';
+                    imageUploadContainer.querySelector('h4').style.display = 'none';
+                    imageUploadContainer.querySelector('p').style.display = 'none';
+                }
+                
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
+        
+        // Detect location
+        detectLocationBtn.addEventListener('click', function() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    function(position) {
+                        const latitude = position.coords.latitude;
+                        const longitude = position.coords.longitude;
+                        
+                        // In a real app, you would reverse geocode these coordinates to get an address
+                        document.getElementById('location').value = `Lat: ${latitude.toFixed(4)}, Long: ${longitude.toFixed(4)}`;
+                    },
+                    function(error) {
+                        alert('Unable to retrieve your location. Please enter manually.');
+                    }
+                );
+            } else {
+                alert('Geolocation is not supported by your browser. Please enter manually.');
+            }
+        });
+        
+        // Reset form
+        resetFormBtn.addEventListener('click', function() {
+            animalImageInput.value = '';
+            imagePreview.style.display = 'none';
+            imagePreview.src = '';
+            imageUploadContainer.querySelector('i').style.display = 'block';
+            imageUploadContainer.querySelector('h4').style.display = 'block';
+            imageUploadContainer.querySelector('p').style.display = 'block';
+            document.getElementById('animalType').selectedIndex = 0;
+            document.getElementById('conditionDescription').value = '';
+            document.getElementById('location').value = '';
+            document.getElementById('contactInfo').value = '';
+            aiProcessing.style.display = 'none';
+            successMessage.style.display = 'none';
+        });
+        
+        // WhatsApp share
+        whatsappShareBtn.addEventListener('click', function() {
+            const animalType = document.getElementById('animalType').value || 'animal';
+            const location = document.getElementById('location').value || 'unknown location';
+            
+            let message = `I found a ${animalType} in need at ${location}. `;
+            message += `Condition: ${document.getElementById('conditionDescription').value || 'Not specified'}. `;
+            message += `Please help! Reported via ResQ Paws.`;
+            
+            const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        });
+        
+        // Submit report
+        submitReportBtn.addEventListener('click', function() {
+            if (!animalImageInput.files[0]) {
+                alert('Please upload a photo of the animal');
+                return;
+            }
+            
+            if (!document.getElementById('animalType').value) {
+                alert('Please select the animal type');
+                return;
+            }
+            
+            if (!document.getElementById('location').value) {
+                alert('Please provide or detect the location');
+                return;
+            }
+            
+            // Show AI processing animation
+            aiProcessing.style.display = 'block';
+            
+            // Simulate AI processing delay
+            setTimeout(() => {
+                aiProcessing.style.display = 'none';
+                successMessage.style.display = 'block';
+            }, 3000);
+        });
+        
+        // First Aid Chatbot
+        const chatbotMessages = document.getElementById('chatbotMessages');
+        const userMessageInput = document.getElementById('userMessage');
+        const sendMessageBtn = document.getElementById('sendMessage');
+        
+        const firstAidResponses = {
+            'wound': 'For wounds: 1) Clean with mild soap and water 2) Apply antiseptic 3) Cover with clean bandage if possible 4) Contact vet if deep or infected',
+            'bleeding': 'For bleeding: 1) Apply direct pressure with clean cloth 2) Elevate if possible 3) Use styptic powder for nail bleeding 4) Seek immediate vet care for severe bleeding',
+            'fracture': 'For suspected fractures: 1) Keep animal still 2) Immobilize limb if possible without causing pain 3) Do not attempt to set bone 4) Transport carefully to vet',
+            'burn': 'For burns: 1) Cool with room temperature water (not ice) 2) Do not apply ointments 3) Cover loosely with clean cloth 4) Seek vet attention',
+            'poison': 'For poisoning: 1) Identify toxin if possible 2) Do not induce vomiting unless instructed 3) Call vet/poison control immediately 4) Bring container/plant sample if available',
+            'heat stroke': 'For heat stroke: 1) Move to cool area 2) Offer small amounts of water 3) Cool with wet towels (not ice) 4) Seek emergency vet care',
+            'choking': 'For choking: 1) Check mouth for visible obstruction 2) Remove carefully if possible 3) Perform modified Heimlich if trained 4) Get emergency vet help',
+            'default': 'I can help with common issues like wounds, bleeding, fractures, burns, poisoning, heat stroke, and choking. Please describe the symptoms you\'re seeing.'
+        };
+        
+        function addBotMessage(text) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message bot-message';
+            messageDiv.textContent = text;
+            chatbotMessages.appendChild(messageDiv);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+        
+        function addUserMessage(text) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message user-message';
+            messageDiv.textContent = text;
+            chatbotMessages.appendChild(messageDiv);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+        
+        sendMessageBtn.addEventListener('click', function() {
+            const message = userMessageInput.value.trim();
+            if (message) {
+                addUserMessage(message);
+                userMessageInput.value = '';
+                
+                // Simple keyword matching for demo purposes
+                setTimeout(() => {
+                    let response = firstAidResponses.default;
+                    const lowerMessage = message.toLowerCase();
+                    
+                    if (lowerMessage.includes('wound') || lowerMessage.includes('cut') || lowerMessage.includes('scratch')) {
+                        response = firstAidResponses.wound;
+                    } else if (lowerMessage.includes('bleed') || lowerMessage.includes('blood')) {
+                        response = firstAidResponses.bleeding;
+                    } else if (lowerMessage.includes('fracture') || lowerMessage.includes('broken') || lowerMessage.includes('limb')) {
+                        response = firstAidResponses.fracture;
+                    } else if (lowerMessage.includes('burn') || lowerMessage.includes('scald')) {
+                        response = firstAidResponses.burn;
+                    } else if (lowerMessage.includes('poison') || lowerMessage.includes('toxic') || lowerMessage.includes('ate')) {
+                        response = firstAidResponses.poison;
+                    } else if (lowerMessage.includes('heat') || lowerMessage.includes('hot') || lowerMessage.includes('panting')) {
+                        response = firstAidResponses.heat_stroke;
+                    } else if (lowerMessage.includes('choke') || lowerMessage.includes('cough') || lowerMessage.includes('gag')) {
+                        response = firstAidResponses.choking;
+                    }
+                    
+                    addBotMessage(response);
+                }, 1000);
+            }
+        });
+        
+        userMessageInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessageBtn.click();
+            }
+        });
+        
+        // Adoption Portal Swipe Functionality
+        const dogCards = [
+            {
+                name: "Buddy",
+                breed: "Labrador Mix",
+                age: "2 years",
+                description: "Friendly male, good with kids and other pets. Vaccinated and neutered.",
+                ngo: "Pawsitive Hope, Mumbai",
+                image: "https://images.unsplash.com/photo-1586671267731-da2cf3ceeb80?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            },
+            {
+                name: "Luna",
+                breed: "Indian Pariah",
+                age: "1.5 years",
+                description: "Playful female, loves attention. Fully vaccinated and spayed.",
+                ngo: "Furry Angels, Delhi",
+                image: "https://images.unsplash.com/photo-1544568100-847a948585b9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            },
+            {
+                name: "Rocky",
+                breed: "Boxer Mix",
+                age: "3 years",
+                description: "Gentle giant, great with older children. Needs experienced owner.",
+                ngo: "Tail Wagers, Bangalore",
+                image: "https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            }
+        ];
+        
+        let currentDogIndex = 0;
+        const dogCardElement = document.querySelector('.dog-card');
+        const swipeLeftBtn = document.querySelector('.swipe-left');
+        const swipeRightBtn = document.querySelector('.swipe-right');
+        
+        function updateDogCard() {
+            const dog = dogCards[currentDogIndex];
+            dogCardElement.style.backgroundImage = `url('${dog.image}')`;
+            dogCardElement.querySelector('.dog-name').textContent = dog.name;
+            dogCardElement.querySelector('.dog-breed').textContent = dog.breed;
+            dogCardElement.querySelector('.dog-description').textContent = dog.description;
+            dogCardElement.querySelector('.ngo-info').textContent = `Available through: ${dog.ngo}`;
+        }
+        
+        swipeLeftBtn.addEventListener('click', function() {
+            currentDogIndex = (currentDogIndex + 1) % dogCards.length;
+            updateDogCard();
+        });
+        
+        swipeRightBtn.addEventListener('click', function() {
+            alert(`You've expressed interest in adopting ${dogCards[currentDogIndex].name}! The NGO will contact you shortly.`);
+            currentDogIndex = (currentDogIndex + 1) % dogCards.length;
+            updateDogCard();
+        });
+        
+        // Initialize first dog
+        updateDogCard();
+        
+        // Form submissions
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Login functionality would connect to backend in real implementation');
+            // Close modal
+            const modal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
+            modal.hide();
+        });
+        
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Registration would be processed in real implementation');
+            // Close modal
+            const modal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
+            modal.hide();
+        });
+        
+        document.getElementById('partnerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('NGO partnership application submitted! We will contact you soon.');
+            // Close modal
+            const modal = bootstrap.Modal.getInstance(document.getElementById('partnerModal'));
+            modal.hide();
+        });
+        
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will respond soon.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

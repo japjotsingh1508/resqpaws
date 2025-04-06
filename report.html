@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report a Stray - ResQ Paws</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/report.css">
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="ResQ Paws Logo">
+                <span>ResQ Paws</span>
+            </a>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="report.html" class="active">Report</a></li>
+                <li><a href="first-aid.html">First Aid</a></li>
+                <li><a href="how-it-works.html">How We Work</a></li>
+                <li><a href="ngo-partners.html">NGO Partners</a></li>
+                <li><a href="contact.html">Connect</a></li>
+                <li><a href="#" class="btn-login" id="login-btn">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Report Hero Section -->
+    <section class="report-hero">
+        <div class="container">
+            <h1>Report a Stray Animal in Need</h1>
+            <p>Your report will be instantly processed by our AI system and sent to the nearest available rescue organization.</p>
+        </div>
+    </section>
+
+    <!-- Report Form Section -->
+    <section class="report-form-section">
+        <div class="container">
+            <div class="report-form-container">
+                <form id="stray-report-form">
+                    <div class="form-step active" id="step-1">
+                        <h2>1. Animal Details</h2>
+                        <div class="form-group">
+                            <label for="animal-type">Animal Type</label>
+                            <select id="animal-type" required>
+                                <option value="">Select animal type</option>
+                                <option value="dog">Dog</option>
+                                <option value="cat">Cat</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="animal-count">Number of Animals</label>
+                            <input type="number" id="animal-count" min="1" value="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="animal-condition">Condition</label>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="condition" value="injured"> Injured</label>
+                                <label><input type="checkbox" name="condition" value="sick"> Sick</label>
+                                <label><input type="checkbox" name="condition" value="malnourished"> Malnourished</label>
+                                <label><input type="checkbox" name="condition" value="abused"> Abused</label>
+                                <label><input type="checkbox" name="condition" value="trapped"> Trapped</label>
+                                <label><input type="checkbox" name="condition" value="other"> Other</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="additional-notes">Additional Notes</label>
+                            <textarea id="additional-notes" rows="3" placeholder="Describe the animal's condition, behavior, and any other important details"></textarea>
+                        </div>
+                        <div class="form-navigation">
+                            <button type="button" class="btn-next">Next <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="form-step" id="step-2">
+                        <h2>2. Upload Photo</h2>
+                        <div class="form-group">
+                            <label for="animal-photo">Animal Photo</label>
+                            <div class="upload-area" id="upload-area">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Drag & drop a photo here or click to browse</p>
+                                <input type="file" id="animal-photo" accept="image/*" required>
+                            </div>
+                            <div class="image-preview" id="image-preview">
+                                <img id="preview-image" src="#" alt="Preview">
+                                <button type="button" id="remove-image"><i class="fas fa-times"></i></button>
+                            </div>
+                            <p class="upload-note">Note: Clear photos help our AI assess the situation better.</p>
+                        </div>
+                        <div class="form-navigation">
+                            <button type="button" class="btn-prev"><i class="fas fa-arrow-left"></i> Previous</button>
+                            <button type="button" class="btn-next">Next <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="form-step" id="step-3">
+                        <h2>3. Location Details</h2>
+                        <div class="form-group">
+                            <label for="location-description">Location Description</label>
+                            <textarea id="location-description" rows="2" placeholder="E.g. Near the park entrance, behind the shopping complex" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Pin Location on Map</label>
+                            <div class="location-options">
+                                <button type="button" id="use-current-location" class="btn-location">
+                                    <i class="fas fa-location-arrow"></i> Use My Current Location
+                                </button>
+                                <span>or</span>
+                                <button type="button" id="select-on-map" class="btn-location">
+                                    <i class="fas fa-map-marker-alt"></i> Select on Map
+                                </button>
+                            </div>
+                            <div id="map-container">
+                                <div id="map"></div>
+                                <div class="map-instructions">
+                                    <p>Drag the marker to the exact location or search for an address below.</p>
+                                    <div class="map-search">
+                                        <input type="text" id="map-search" placeholder="Search for an address...">
+                                        <button type="button" id="search-button"><i class="fas fa-search"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="hidden" id="latitude" required>
+                            <input type="hidden" id="longitude" required>
+                        </div>
+                        <div class="form-navigation">
+                            <button type="button" class="btn-prev"><i class="fas fa-arrow-left"></i> Previous</button>
+                            <button type="button" class="btn-next">Next <i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="form-step" id="step-4">
+                        <h2>4. Your Details</h2>
+                        <div class="form-group">
+                            <label for="reporter-name">Your Name</label>
+                            <input type="text" id="reporter-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="reporter-phone">Phone Number</label>
+                            <input type="tel" id="reporter-phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="reporter-email">Email (optional)</label>
+                            <input type="email" id="reporter-email">
+                        </div>
+                        <div class="form-group">
+                            <label>Preferred Contact Method</label>
+                            <div class="radio-group">
+                                <label><input type="radio" name="contact-method" value="whatsapp" checked> WhatsApp</label>
+                                <label><input type="radio" name="contact-method" value="call"> Phone Call</label>
+                                <label><input type="radio" name="contact-method" value="sms"> SMS</label>
+                            </div>
+                        </div>
+                        <div class="form-navigation">
+                            <button type="button" class="btn-prev"><i class="fas fa-arrow-left"></i> Previous</button>
+                            <button type="submit" class="btn-submit">Submit Report</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="report-sidebar">
+                <div class="sidebar-card">
+                    <h3>Reporting Tips</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Take clear, well-lit photos</li>
+                        <li><i class="fas fa-check-circle"></i> Note any visible injuries</li>
+                        <li><i class="fas fa-check-circle"></i> Be precise with location</li>
+                        <li><i class="fas fa-check-circle"></i> Observe from a safe distance</li>
+                    </ul>
+                </div>
+                <div class="sidebar-card emergency-card">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Emergency?</h3>
+                    <p>If the animal is in immediate danger, please call our emergency line:</p>
+                    <a href="tel:+911234567890" class="emergency-number">
+                        <i class="fas fa-phone-alt"></i> +91 12345 67890
+                    </a>
+                    <p>Or contact via WhatsApp:</p>
+                    <a href="https://wa.me/911234567890" class="btn-whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Processing Simulation -->
+    <div class="ai-processing-modal" id="ai-modal">
+        <div class="ai-processing-container">
+            <div class="ai-header">
+                <h3><i class="fas fa-brain"></i> AI Processing Your Report</h3>
+            </div>
+            <div class="ai-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="ai-progress-fill"></div>
+                </div>
+                <div class="progress-steps">
+                    <div class="step active" id="step-analyzing">
+                        <i class="fas fa-search"></i>
+                        <span>Analyzing Image</span>
+                    </div>
+                    <div class="step" id="step-classifying">
+                        <i class="fas fa-tags"></i>
+                        <span>Classifying Condition</span>
+                    </div>
+                    <div class="step" id="step-locating">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>Locating Nearest NGO</span>
+                    </div>
+                    <div class="step" id="step-notifying">
+                        <i class="fas fa-bell"></i>
+                        <span>Notifying Rescuers</span>
+                    </div>
+                </div>
+            </div>
+            <div class="ai-findings" id="ai-findings">
+                <!-- AI findings will be displayed here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Report Success Modal -->
+    <div class="success-modal" id="success-modal">
+        <div class="success-container">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3>Report Submitted Successfully!</h3>
+            <div class="success-details" id="success-details">
+                <!-- Success details will be displayed here -->
+            </div>
+            <div class="success-actions">
+                <button class="btn-primary" id="track-report">Track This Case</button>
+                <button class="btn-secondary" id="new-report">Submit Another Report</button>
+            </div>
+            <div class="success-share">
+                <p>Help spread the word:</p>
+                <div class="share-buttons">
+                    <button class="btn-share facebook"><i class="fab fa-facebook-f"></i></button>
+                    <button class="btn-share twitter"><i class="fab fa-twitter"></i></button>
+                    <button class="btn-share whatsapp"><i class="fab fa-whatsapp"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <img src="images/logo-white.png" alt="ResQ Paws Logo" class="footer-logo">
+                    <p>Using technology to connect compassionate people with animals in need.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="report.html">Report a Stray</a></li>
+                        <li><a href="first-aid.html">First Aid Help</a></li>
+                        <li><a href="how-it-works.html">How We Work</a></li>
+                        <li><a href="ngo-partners.html">NGO Partners</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Emergency Contacts</h3>
+                    <ul class="emergency-contacts">
+                        <li><a href="tel:+911234567890"><i class="fas fa-phone-alt"></i> +91 12345 67890</a></li>
+                        <li><a href="https://wa.me/911234567890" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Rescue</a></li>
+                        <li><a href="mailto:emergency@resqpaws.org"><i class="fas fa-envelope"></i> emergency@resqpaws.org</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 ResQ Paws. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/report.js"></script>
+</body>
+</html>

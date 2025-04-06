@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - ResQ Paws</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/contact.css">
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="ResQ Paws Logo">
+                <span>ResQ Paws</span>
+            </a>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="report.html">Report</a></li>
+                <li><a href="first-aid.html">First Aid</a></li>
+                <li><a href="how-it-works.html">How We Work</a></li>
+                <li><a href="ngo-partners.html">NGO Partners</a></li>
+                <li><a href="contact.html" class="active">Connect</a></li>
+                <li><a href="#" class="btn-login" id="login-btn">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contact Hero -->
+    <section class="contact-hero">
+        <div class="container">
+            <h1>Connect With Us</h1>
+            <p>Have questions, suggestions, or want to get involved? We'd love to hear from you.</p>
+        </div>
+    </section>
+
+    <!-- Contact Options -->
+    <section class="contact-options">
+        <div class="container">
+            <div class="contact-cards">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email Us</h3>
+                    <p>For general inquiries and support</p>
+                    <a href="mailto:info@resqpaws.org" class="btn-contact">info@resqpaws.org</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3>Call Us</h3>
+                    <p>For immediate assistance</p>
+                    <a href="tel:+911234567890" class="btn-contact">+91 12345 67890</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3>WhatsApp</h3>
+                    <p>For quick queries and media</p>
+                    <a href="https://wa.me/911234567890" class="btn-contact" target="_blank">Chat on WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-section">
+        <div class="container">
+            <div class="form-container">
+                <h2>Send Us a Message</h2>
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Your Name*</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email*</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject*</label>
+                        <select id="subject" required>
+                            <option value="">Select a subject</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="report">Report Feedback</option>
+                            <option value="partnership">Partnership Opportunity</option>
+                            <option value="media">Media Inquiry</option>
+                            <option value="volunteer">Volunteer Opportunity</option>
+                            <option value="donation">Donation Inquiry</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message*</label>
+                        <textarea id="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Send Message</button>
+                </form>
+            </div>
+            
+            <div class="contact-info">
+                <div class="info-card">
+                    <h3>Our Office</h3>
+                    <address>
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Animal Care Lane, Mumbai, Maharashtra 400001</p>
+                        <p><i class="fas fa-clock"></i> Monday to Friday: 9 AM to 6 PM</p>
+                        <p><i class="fas fa-clock"></i> Saturday: 10 AM to 4 PM</p>
+                        <p><i class="fas fa-clock"></i> Sunday: Closed</p>
+                    </address>
+                </div>
+                
+                <div class="info-card">
+                    <h3>Emergency Contacts</h3>
+                    <p>For animal emergencies outside office hours:</p>
+                    <ul class="emergency-contacts">
+                        <li><a href="tel:+911234567890"><i class="fas fa-phone-alt"></i> +91 12345 67890</a></li>
+                        <li><a href="https://wa.me/911234567890" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Emergency</a></li>
+                    </ul>
+                </div>
+                
+                <div class="info-card">
+                    <h3>Follow Us</h3>
+                    <p>Stay updated on our rescue efforts:</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Volunteer Section -->
+    <section class="volunteer-section">
+        <div class="container">
+            <div class="volunteer-content">
+                <h2>Become a Volunteer</h2>
+                <p>Join our team of dedicated volunteers and make a difference in the lives of street animals.</p>
+                <p>We have opportunities for:</p>
+                <ul class="volunteer-roles">
+                    <li><i class="fas fa-paw"></i> Field rescuers</li>
+                    <li><i class="fas fa-home"></i> Foster caregivers</li>
+                    <li><i class="fas fa-camera"></i> Photographers</li>
+                    <li><i class="fas fa-laptop-code"></i> Tech support</li>
+                    <li><i class="fas fa-hands-helping"></i> Event organizers</li>
+                </ul>
+                <a href="#" class="btn-primary">Apply to Volunteer</a>
+            </div>
+            <div class="volunteer-image">
+                <img src="images/volunteer.jpg" alt="Volunteer with animals">
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <h2>Stay Informed</h2>
+            <p>Subscribe to our newsletter for updates on rescue stories, events, and how you can help.</p>
+            <form class="newsletter-form">
+                <div class="form-group">
+                    <input type="text" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Your Email" required>
+                </div>
+                <button type="submit" class="btn-primary">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <img src="images/logo-white.png" alt="ResQ Paws Logo" class="footer-logo">
+                    <p>Using technology to connect compassionate people with animals in need.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="report.html">Report a Stray</a></li>
+                        <li><a href="first-aid.html">First Aid Help</a></li>
+                        <li><a href="how-it-works.html">How We Work</a></li>
+                        <li><a href="ngo-partners.html">NGO Partners</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Emergency Contacts</h3>
+                    <ul class="emergency-contacts">
+                        <li><a href="tel:+911234567890"><i class="fas fa-phone-alt"></i> +91 12345 67890</a></li>
+                        <li><a href="https://wa.me/911234567890" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Rescue</a></li>
+                        <li><a href="mailto:emergency@resqpaws.org"><i class="fas fa-envelope"></i> emergency@resqpaws.org</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 ResQ Paws. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/contact.js"></script>
+</body>
+</html>

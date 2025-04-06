@@ -1,0 +1,546 @@
+/* First Aid Hero */
+.first-aid-hero {
+    background-color: var(--primary-light);
+    color: var(--secondary-color);
+    padding: 150px 0 60px;
+}
+
+.first-aid-hero .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.first-aid-hero .hero-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.first-aid-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.first-aid-hero p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.first-aid-hero .hero-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.first-aid-hero .hero-image {
+    flex: 1;
+    max-width: 500px;
+}
+
+#start-chat-btn {
+    display: inline-flex;
+    align-items: center;
+}
+
+#start-chat-btn i {
+    margin-right: 8px;
+}
+
+/* Common Issues */
+.common-issues {
+    background-color: var(--secondary-color);
+    text-align: center;
+}
+
+.common-issues h2 {
+    margin-bottom: 15px;
+}
+
+.common-issues p {
+    max-width: 700px;
+    margin: 0 auto 40px;
+    color: var(--text-light);
+}
+
+.issues-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.issue-card {
+    background-color: var(--bg-light);
+    border-radius: 10px;
+    padding: 25px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.issue-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.issue-card:hover p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.issue-icon {
+    width: 60px;
+    height: 60px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 1.5rem;
+    transition: var(--transition);
+}
+
+.issue-card:hover .issue-icon {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+.issue-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.issue-card p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 0;
+    transition: var(--transition);
+}
+
+/* First Aid Kit */
+.first-aid-kit {
+    background-color: var(--bg-light);
+}
+
+.first-aid-kit h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.first-aid-kit p {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 40px;
+    color: var(--text-light);
+}
+
+.kit-container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.kit-items {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.kit-item {
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.kit-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.kit-item img {
+    height: 60px;
+    margin-bottom: 15px;
+}
+
+.kit-item h4 {
+    font-size: 1rem;
+}
+
+.kit-info {
+    flex: 1;
+}
+
+.kit-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.kit-info p {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+/* Safety Tips */
+.safety-tips {
+    background-color: var(--secondary-color);
+    text-align: center;
+}
+
+.safety-tips h2 {
+    margin-bottom: 15px;
+}
+
+.safety-tips p {
+    max-width: 700px;
+    margin: 0 auto 40px;
+    color: var(--text-light);
+}
+
+.tips-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.tip-card {
+    background-color: var(--bg-light);
+    border-radius: 10px;
+    padding: 30px;
+    text-align: left;
+    transition: var(--transition);
+}
+
+.tip-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.tip-icon {
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.tip-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.tip-card p {
+    text-align: left;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* Emergency CTA */
+.emergency-cta {
+    background-color: #FFF3E0;
+    padding: 60px 0;
+}
+
+.emergency-card {
+    display: flex;
+    align-items: center;
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.emergency-content {
+    flex: 1;
+    padding: 40px;
+}
+
+.emergency-content h2 {
+    color: #E65100;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.emergency-content h2 i {
+    margin-right: 10px;
+}
+
+.emergency-content p {
+    margin-bottom: 20px;
+}
+
+.emergency-contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.emergency-number {
+    display: inline-flex;
+    align-items: center;
+    background-color: #E65100;
+    color: var(--secondary-color);
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.emergency-number:hover {
+    background-color: #BF360C;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.emergency-number i {
+    margin-right: 10px;
+}
+
+.emergency-image {
+    flex: 1;
+}
+
+.emergency-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Chatbot */
+.chatbot-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 100%;
+    max-width: 350px;
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    box-shadow: var(--shadow-lg);
+    z-index: 1000;
+    transform: translateY(20px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.chatbot-container.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+.chatbot-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-radius: 10px 10px 0 0;
+}
+
+.chatbot-title {
+    display: flex;
+    align-items: center;
+}
+
+.chatbot-title img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.chatbot-title h3 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.close-chatbot {
+    background: none;
+    border: none;
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.close-chatbot:hover {
+    transform: rotate(90deg);
+}
+
+.chatbot-messages {
+    height: 300px;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: var(--bg-light);
+}
+
+.message {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.message-content {
+    max-width: 80%;
+    padding: 12px 15px;
+    border-radius: 18px;
+    font-size: 0.95rem;
+}
+
+.bot-message {
+    justify-content: flex-start;
+}
+
+.bot-message .message-content {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border-top-left-radius: 0;
+    box-shadow: var(--shadow);
+}
+
+.user-message {
+    justify-content: flex-end;
+}
+
+.user-message .message-content {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-bottom-right-radius: 0;
+}
+
+.quick-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.quick-option {
+    padding: 8px 12px;
+    background-color: var(--bg-light);
+    border: 1px solid #ddd;
+    border-radius: 18px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: var(--transition);
+    text-align: left;
+}
+
+.quick-option:hover {
+    background-color: var(--primary-light);
+    color: var(--secondary-color);
+    border-color: var(--primary-light);
+}
+
+.chatbot-input {
+    display: flex;
+    padding: 15px;
+    border-top: 1px solid #eee;
+}
+
+.chatbot-input input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 50px;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+#send-message {
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    border-radius: 50%;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+#send-message:hover {
+    background-color: var(--primary-dark);
+    transform: scale(1.05);
+}
+
+@media (max-width: 992px) {
+    .issues-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .kit-container {
+        flex-direction: column;
+    }
+
+    .kit-items {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .first-aid-hero {
+        padding: 120px 0 40px;
+    }
+
+    .first-aid-hero .container {
+        flex-direction: column;
+    }
+
+    .first-aid-hero .hero-content {
+        margin-bottom: 40px;
+        text-align: center;
+    }
+
+    .first-aid-hero .hero-buttons {
+        justify-content: center;
+    }
+
+    .issues-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .tips-container {
+        grid-template-columns: 1fr;
+    }
+
+    .emergency-card {
+        flex-direction: column;
+    }
+
+    .emergency-image {
+        order: -1;
+    }
+
+    .emergency-image img {
+        max-height: 200px;
+    }
+}
+
+@media (max-width: 576px) {
+    .first-aid-hero h1 {
+        font-size: 2rem;
+    }
+
+    .issues-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .chatbot-container {
+        max-width: calc(100% - 40px);
+        right: 20px;
+        bottom: 20px;
+    }
+}

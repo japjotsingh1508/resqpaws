@@ -1,0 +1,280 @@
+/* How It Works Hero */
+.how-it-works-hero {
+    background-color: var(--primary-light);
+    color: var(--secondary-color);
+    padding: 150px 0 80px;
+    text-align: center;
+}
+
+.how-it-works-hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+}
+
+.how-it-works-hero p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+/* Process Steps */
+.process-steps {
+    background-color: var(--secondary-color);
+}
+
+.process-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.process-step {
+    display: flex;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.process-step:last-child {
+    margin-bottom: 0;
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-right: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.step-content {
+    flex: 1;
+    background-color: var(--bg-light);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: var(--shadow);
+}
+
+.step-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.step-image {
+    margin-top: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.step-image img {
+    width: 100%;
+    height: auto;
+    transition: var(--transition);
+}
+
+.step-image:hover img {
+    transform: scale(1.03);
+}
+
+/* Technology Section */
+.technology-section {
+    background-color: var(--bg-light);
+    text-align: center;
+}
+
+.technology-section h2 {
+    margin-bottom: 15px;
+}
+
+.technology-section p {
+    max-width: 700px;
+    margin: 0 auto 50px;
+    color: var(--text-light);
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.tech-card {
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.tech-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.tech-icon {
+    width: 70px;
+    height: 70px;
+    background-color: var(--primary-light);
+    color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 1.8rem;
+}
+
+.tech-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.tech-card p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--text-light);
+}
+
+/* Impact Section */
+.impact-section {
+    background-color: var(--secondary-color);
+}
+
+.impact-section .container {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.impact-content {
+    flex: 1;
+}
+
+.impact-image {
+    flex: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.impact-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.impact-stats {
+    display: flex;
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.impact-stat {
+    text-align: center;
+    flex: 1;
+}
+
+.impact-stat h3 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.impact-stat p {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin: 0;
+}
+
+/* CTA Section */
+.how-cta {
+    background-color: var(--primary-light);
+    color: var(--secondary-color);
+    text-align: center;
+    padding: 80px 0;
+}
+
+.how-cta h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.how-cta p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.how-cta .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+@media (max-width: 992px) {
+    .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .impact-section .container {
+        flex-direction: column;
+    }
+
+    .impact-content, .impact-image {
+        width: 100%;
+    }
+
+    .impact-image {
+        order: -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .how-it-works-hero {
+        padding: 120px 0 60px;
+    }
+
+    .how-it-works-hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .process-step {
+        flex-direction: column;
+    }
+
+    .step-number {
+        margin: 0 auto 20px;
+    }
+
+    .impact-stats {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .how-cta .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .how-it-works-hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .tech-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .how-cta h2 {
+        font-size: 2rem;
+    }
+}

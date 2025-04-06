@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Aid Help - ResQ Paws</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/first-aid.css">
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="ResQ Paws Logo">
+                <span>ResQ Paws</span>
+            </a>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="report.html">Report</a></li>
+                <li><a href="first-aid.html" class="active">First Aid</a></li>
+                <li><a href="how-it-works.html">How We Work</a></li>
+                <li><a href="ngo-partners.html">NGO Partners</a></li>
+                <li><a href="contact.html">Connect</a></li>
+                <li><a href="#" class="btn-login" id="login-btn">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- First Aid Hero Section -->
+    <section class="first-aid-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>First Aid Help for Street Animals</h1>
+                <p>Get immediate guidance for common animal health issues until professional help arrives.</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary" id="start-chat-btn">Start First Aid Chat</button>
+                    <a href="report.html" class="btn-secondary">Report Emergency</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="images/first-aid-hero.png" alt="First aid for animals">
+            </div>
+        </div>
+    </section>
+
+    <!-- Common Issues Section -->
+    <section class="common-issues">
+        <div class="container">
+            <h2>Common Animal Health Issues</h2>
+            <p>Quick access to information about frequent problems street animals face</p>
+            
+            <div class="issues-grid">
+                <div class="issue-card" data-issue="wounds">
+                    <div class="issue-icon">
+                        <i class="fas fa-band-aid"></i>
+                    </div>
+                    <h3>Wounds & Injuries</h3>
+                    <p>Cuts, scrapes, bite wounds, and other injuries</p>
+                </div>
+                <div class="issue-card" data-issue="parasites">
+                    <div class="issue-icon">
+                        <i class="fas fa-bug"></i>
+                    </div>
+                    <h3>Parasites</h3>
+                    <p>Ticks, fleas, mange, and worm infestations</p>
+                </div>
+                <div class="issue-card" data-issue="poisoning">
+                    <div class="issue-icon">
+                        <i class="fas fa-skull-crossbones"></i>
+                    </div>
+                    <h3>Poisoning</h3>
+                    <p>Suspected poisoning or toxic substance ingestion</p>
+                </div>
+                <div class="issue-card" data-issue="respiratory">
+                    <div class="issue-icon">
+                        <i class="fas fa-lungs"></i>
+                    </div>
+                    <h3>Respiratory Issues</h3>
+                    <p>Coughing, sneezing, difficulty breathing</p>
+                </div>
+                <div class="issue-card" data-issue="eye">
+                    <div class="issue-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Eye Problems</h3>
+                    <p>Discharge, swelling, cloudiness, or injury</p>
+                </div>
+                <div class="issue-card" data-issue="malnutrition">
+                    <div class="issue-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Malnutrition</h3>
+                    <p>Extreme thinness, weakness, or starvation</p>
+                </div>
+                <div class="issue-card" data-issue="fractures">
+                    <div class="issue-icon">
+                        <i class="fas fa-bone"></i>
+                    </div>
+                    <h3>Fractures</h3>
+                    <p>Broken bones or limping</p>
+                </div>
+                <div class="issue-card" data-issue="skin">
+                    <div class="issue-icon">
+                        <i class="fas fa-allergies"></i>
+                    </div>
+                    <h3>Skin Conditions</h3>
+                    <p>Rashes, hair loss, itching, or infections</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- First Aid Kit Section -->
+    <section class="first-aid-kit">
+        <div class="container">
+            <h2>Essential First Aid Kit for Street Animals</h2>
+            <p>Recommended items to keep handy for helping animals in need</p>
+            
+            <div class="kit-container">
+                <div class="kit-items">
+                    <div class="kit-item">
+                        <img src="images/bandage.png" alt="Bandages">
+                        <h4>Sterile Bandages</h4>
+                    </div>
+                    <div class="kit-item">
+                        <img src="images/antiseptic.png" alt="Antiseptic">
+                        <h4>Antiseptic Solution</h4>
+                    </div>
+                    <div class="kit-item">
+                        <img src="images/gloves.png" alt="Gloves">
+                        <h4>Disposable Gloves</h4>
+                    </div>
+                    <div class="kit-item">
+                        <img src="images/tweezers.png" alt="Tweezers">
+                        <h4>Tweezers</h4>
+                    </div>
+                    <div class="kit-item">
+                        <img src="images/blanket.png" alt="Blanket">
+                        <h4>Emergency Blanket</h4>
+                    </div>
+                    <div class="kit-item">
+                        <img src="images/syringe.png" alt="Syringe">
+                        <h4>Oral Syringe</h4>
+                    </div>
+                </div>
+                <div class="kit-info">
+                    <h3>Building Your First Aid Kit</h3>
+                    <p>Having these basic supplies can help you provide immediate care to injured or sick animals while waiting for professional help.</p>
+                    <p>Store your kit in an easily accessible place and check expiration dates regularly.</p>
+                    <a href="#" class="btn-secondary">Download Complete Checklist</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Safety Tips Section -->
+    <section class="safety-tips">
+        <div class="container">
+            <h2>Safety First</h2>
+            <p>Important precautions when helping street animals</p>
+            
+            <div class="tips-container">
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Approach Carefully</h3>
+                    <p>Injured animals may be scared and defensive. Move slowly and speak softly.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-hands-wash"></i>
+                    </div>
+                    <h3>Protect Yourself</h3>
+                    <p>Wear gloves and wash hands thoroughly after handling animals.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-car-crash"></i>
+                    </div>
+                    <h3>Traffic Awareness</h3>
+                    <p>Be mindful of traffic when helping animals on roads.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <h3>Know Your Limits</h3>
+                    <p>Provide only first aid you're comfortable with and seek professional help.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- First Aid Chatbot -->
+    <div class="chatbot-container" id="chatbot-container">
+        <div class="chatbot-header">
+            <div class="chatbot-title">
+                <img src="images/chatbot-icon.png" alt="First Aid Assistant">
+                <h3>First Aid Assistant</h3>
+            </div>
+            <button class="close-chatbot" id="close-chatbot">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chatbot-messages" id="chatbot-messages">
+            <div class="message bot-message">
+                <div class="message-content">
+                    <p>Hello! I'm your First Aid Assistant. How can I help you today? You can describe the animal's symptoms or select from common issues:</p>
+                    <div class="quick-options">
+                        <button class="quick-option" data-option="wound">The animal has a wound</button>
+                        <button class="quick-option" data-option="parasites">I see parasites/fleas</button>
+                        <button class="quick-option" data-option="breathing">Difficulty breathing</button>
+                        <button class="quick-option" data-option="poisoning">Suspected poisoning</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="chatbot-input" placeholder="Describe the animal's condition...">
+            <button id="send-message"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <!-- Emergency CTA -->
+    <section class="emergency-cta">
+        <div class="container">
+            <div class="emergency-card">
+                <div class="emergency-content">
+                    <h2><i class="fas fa-exclamation-triangle"></i> Emergency Situation?</h2>
+                    <p>If the animal is in critical condition, severely injured, or in immediate danger, please contact emergency services right away.</p>
+                    <div class="emergency-contacts">
+                        <a href="tel:+911234567890" class="emergency-number">
+                            <i class="fas fa-phone-alt"></i> Call Emergency: +91 12345 67890
+                        </a>
+                        <a href="https://wa.me/911234567890" class="btn-whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i> WhatsApp Emergency
+                        </a>
+                    </div>
+                </div>
+                <div class="emergency-image">
+                    <img src="images/emergency-dog.png" alt="Emergency help for animals">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <img src="images/logo-white.png" alt="ResQ Paws Logo" class="footer-logo">
+                    <p>Using technology to connect compassionate people with animals in need.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="report.html">Report a Stray</a></li>
+                        <li><a href="first-aid.html">First Aid Help</a></li>
+                        <li><a href="how-it-works.html">How We Work</a></li>
+                        <li><a href="ngo-partners.html">NGO Partners</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to get updates on our rescue efforts.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 ResQ Paws. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/first-aid.js"></script>
+</body>
+</html>

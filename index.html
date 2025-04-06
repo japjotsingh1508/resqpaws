@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResQ Paws - Street Dog Rescue</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="ResQ Paws Logo">
+                <span>ResQ Paws</span>
+            </a>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="report.html">Report</a></li>
+                <li><a href="first-aid.html">First Aid</a></li>
+                <li><a href="how-it-works.html">How We Work</a></li>
+                <li><a href="ngo-partners.html">NGO Partners</a></li>
+                <li><a href="contact.html">Connect</a></li>
+                <li><a href="#" class="btn-login" id="login-btn">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Helping Street Dogs One Paw at a Time</h1>
+                <p>Report injured or distressed street animals and get them the help they need instantly through our network of NGO partners.</p>
+                <div class="hero-buttons">
+                    <a href="report.html" class="btn-primary">Report a Stray</a>
+                    <a href="first-aid.html" class="btn-secondary">First Aid Help</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="images/hero-dog.png" alt="Happy rescued dog">
+            </div>
+        </div>
+    </section>
+
+    <!-- Rescue Steps Section -->
+    <section class="rescue-steps">
+        <div class="container">
+            <h2>Rescue in Three Simple Steps</h2>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3>1. Snap a Photo</h3>
+                    <p>Take a clear picture of the animal in need using your smartphone.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>2. Describe Location</h3>
+                    <p>Provide details about where you found the animal or use GPS.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3>3. Alert Nearest NGO</h3>
+                    <p>Our system automatically notifies the closest rescue organization.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stat-item">
+                <h3>5,000+</h3>
+                <p>Animals Rescued</p>
+            </div>
+            <div class="stat-item">
+                <h3>50+</h3>
+                <p>Partner NGOs</p>
+            </div>
+            <div class="stat-item">
+                <h3>24/7</h3>
+                <p>Emergency Support</p>
+            </div>
+            <div class="stat-item">
+                <h3>30 min</h3>
+                <p>Average Response Time</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>What People Say About Us</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial active">
+                    <p>"ResQ Paws helped me rescue an injured puppy near my office. The response was incredibly fast and the NGO team was very professional."</p>
+                    <div class="author">
+                        <img src="images/user1.jpg" alt="User">
+                        <div>
+                            <h4>Rahul Sharma</h4>
+                            <span>Mumbai</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <p>"As an animal lover, I'm so grateful for this platform. It makes helping street animals so much easier and more effective."</p>
+                    <div class="author">
+                        <img src="images/user2.jpg" alt="User">
+                        <div>
+                            <h4>Priya Patel</h4>
+                            <span>Delhi</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <p>"Our NGO has been able to help 3 times more animals since partnering with ResQ Paws. The automated system saves us so much time."</p>
+                    <div class="author">
+                        <img src="images/user3.jpg" alt="User">
+                        <div>
+                            <h4>Dr. Amit Khanna</h4>
+                            <span>Paws & Care NGO</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-controls">
+                <button class="slider-prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="slider-next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">How quickly will someone respond to my report?<i class="fas fa-chevron-down"></i></button>
+                    <div class="faq-answer">
+                        <p>Our average response time is 30 minutes, but it can vary depending on location and time of day. Emergency cases are prioritized.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">What should I do if the animal seems aggressive?<i class="fas fa-chevron-down"></i></button>
+                    <div class="faq-answer">
+                        <p>Keep a safe distance and don't attempt to handle the animal. Note the location and behavior in your report so trained rescuers can approach properly.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Can I follow up on an animal I reported?<i class="fas fa-chevron-down"></i></button>
+                    <div class="faq-answer">
+                        <p>Yes! Once you create an account, you can track the status of your reports and receive updates on the animals you've helped.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">How can my NGO partner with ResQ Paws?<i class="fas fa-chevron-down"></i></button>
+                    <div class="faq-answer">
+                        <p>Visit our NGO Partners page and click "Become a Partner" to start the application process. We'd love to work with you!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Make a Difference?</h2>
+            <p>Join our community of animal rescuers today.</p>
+            <div class="cta-buttons">
+                <a href="report.html" class="btn-primary">Report a Stray Now</a>
+                <a href="#" class="btn-secondary" id="signup-btn">Create Free Account</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <img src="images/logo-white.png" alt="ResQ Paws Logo" class="footer-logo">
+                    <p>Using technology to connect compassionate people with animals in need.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="report.html">Report a Stray</a></li>
+                        <li><a href="first-aid.html">First Aid Help</a></li>
+                        <li><a href="how-it-works.html">How We Work</a></li>
+                        <li><a href="ngo-partners.html">NGO Partners</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to get updates on our rescue efforts.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 ResQ Paws. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login/Signup Modal -->
+    <div class="auth-modal" id="auth-modal">
+        <div class="auth-container">
+            <button class="close-modal" id="close-auth">&times;</button>
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-tab="login">Login</button>
+                <button class="auth-tab" data-tab="signup">Sign Up</button>
+            </div>
+            <div class="auth-content">
+                <form id="login-form" class="auth-form active">
+                    <div class="form-group">
+                        <label for="login-email">Email</label>
+                        <input type="email" id="login-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Login</button>
+                    <div class="auth-links">
+                        <a href="#" class="forgot-password">Forgot password?</a>
+                    </div>
+                    <div class="social-login">
+                        <p>Or login with</p>
+                        <div class="social-buttons">
+                            <button type="button" class="btn-social google">
+                                <i class="fab fa-google"></i> Google
+                            </button>
+                            <button type="button" class="btn-social facebook">
+                                <i class="fab fa-facebook-f"></i> Facebook
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <form id="signup-form" class="auth-form">
+                    <div class="form-group">
+                        <label for="signup-name">Full Name</label>
+                        <input type="text" id="signup-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-email">Email</label>
+                        <input type="email" id="signup-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-phone">Phone Number</label>
+                        <input type="tel" id="signup-phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-password">Password</label>
+                        <input type="password" id="signup-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-confirm">Confirm Password</label>
+                        <input type="password" id="signup-confirm" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Create Account</button>
+                    <div class="terms-agreement">
+                        <input type="checkbox" id="agree-terms" required>
+                        <label for="agree-terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>
