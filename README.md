@@ -10,8 +10,8 @@ Resqpaw is a community-driven platform designed to help rescue, report, adopt an
 - 🐶 View a map of reported strays in real-time
 - 🤝 Connect with nearby volunteers and shelters
 - 💬 Communication tools for coordination
-- 📦 Donation management and supply requests
-- 📊 Admin dashboard with analytics and animal tracking
+- 📦 Adoption management 
+- 📊 Admin dashboard with analytics,report tracking and first aid
 
 ---
 
