@@ -1,6 +1,6 @@
 # 🐾 Resqpaw
 
-Resqpaw is a community-driven platform designed to help rescue, report, and rehome stray animals. Whether you're a volunteer, animal lover, or an organization, Stray Aid connects you with tools and resources to make a difference in the lives of stray animals.
+Resqpaw is a community-driven platform designed to help rescue, report, adopt and rehome stray animals. Whether you're a volunteer, animal lover, or an organization, Resqpaw connects you with tools and resources to make a difference in the lives of stray animals.
 
 ---
 
